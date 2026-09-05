@@ -20,6 +20,7 @@ public class ApiResponse<T> {
     private Object errors;
     private LocalDateTime timestamp;
 
+
     public static <T> ApiResponse<T> success(String message, T data) {
         return new ApiResponse<>(true, message, data, null, LocalDateTime.now());
     }

@@ -75,9 +75,7 @@ public class PaymentService {
         }
 
 
-        auditLogger.log("CREATE", "Payment", saved.getId(),
-                "order=" + order.getId() + " amount=" + saved.getAmount() + " method=" + saved.getMethod());
-        return saved;
+
     }
 
 

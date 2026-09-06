@@ -4,6 +4,7 @@ package com.example.api_project.util;
 import com.example.api_project.entity.AuditLog;
 import com.example.api_project.entity.User;
 import com.example.api_project.repository.AuditLogRepository;
+import com.example.api_project.security.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;

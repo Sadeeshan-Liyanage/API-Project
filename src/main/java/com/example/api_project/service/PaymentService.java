@@ -3,6 +3,7 @@ package com.example.api_project.service;
 
 import com.example.api_project.entity.Payment;
 import com.example.api_project.entity.SalesOrder;
+import com.example.api_project.exception.BadRequestException;
 import com.example.api_project.exception.ResourceNotFoundException;
 import com.example.api_project.repository.PaymentRepository;
 import com.example.api_project.repository.SalesOrderRepository;
@@ -43,9 +44,7 @@ public class PaymentService {
     @Transactional
     public Payment create(Payment payment) {
         if (payment.getSalesOrder() == null || payment.getSalesOrder().getId() == null) {
-            throw new Bad
-
-            RequestException("A sales order id is required for a payment");
+            throw new BadRequestException("A sales order id is required for a payment");
         }
         SalesOrder order = salesOrderRepository.findById(payment.getSalesOrder().getId())
                 .orElseThrow(() -> new ResourceNotFoundException("SalesOrder", payment.getSalesOrder().getId()));

@@ -5,6 +5,7 @@ import com.example.api_project.entity.*;
 import com.example.api_project.exception.BadRequestException;
 import com.example.api_project.exception.ResourceNotFoundException;
 import com.example.api_project.repository.*;
+import com.example.api_project.security.CustomUserDetails;
 import com.example.api_project.util.AuditLogger;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;

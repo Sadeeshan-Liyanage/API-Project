@@ -3,6 +3,7 @@ package com.example.api_project.controller;
 
 import com.example.api_project.dto.ApiResponse;
 import com.example.api_project.entity.User;
+import com.example.api_project.security.CustomUserDetails;
 import com.example.api_project.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

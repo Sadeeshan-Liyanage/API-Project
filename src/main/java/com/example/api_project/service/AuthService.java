@@ -13,6 +13,7 @@ import com.example.api_project.exception.ResourceNotFoundException;
 import com.example.api_project.repository.BranchRepository;
 import com.example.api_project.repository.RoleRepository;
 import com.example.api_project.repository.UserRepository;
+import com.example.api_project.security.JwtUtil;
 import com.example.api_project.util.AuditLogger;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

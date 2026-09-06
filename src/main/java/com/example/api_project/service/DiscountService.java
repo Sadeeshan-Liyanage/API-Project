@@ -43,16 +43,7 @@ public class DiscountService {
 
     @Transactional
     public Discount update(Long id, Discount updated) {
-        Discount discount = findById(id);
-        discount.setDescription(updated.getDescription());
-        discount.setType(updated.getType());
-        discount.setValue(updated.getValue());
-        discount.setValidFrom(updated.getValidFrom());
-        discount.setValidTo(updated.getValidTo());
-        if (updated.getActive() != null) discount.setActive(updated.getActive());
-        Discount saved = discountRepository.save(discount);
-        auditLogger.log("UPDATE", "Discount", saved.getId(), saved.getCode());
-        return saved;
+
     }
 
 

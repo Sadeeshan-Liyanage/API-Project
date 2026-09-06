@@ -1,6 +1,6 @@
 package com.example.api_project.repository;
 
-import com.grocery.api.entity.Product;
+import com.example.api_project.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

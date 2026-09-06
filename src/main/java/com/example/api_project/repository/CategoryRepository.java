@@ -1,6 +1,6 @@
 package com.example.api_project.repository;
 
-import com.grocery.api.entity.Category;
+import com.example.api_project.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {

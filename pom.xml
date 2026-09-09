@@ -118,6 +118,7 @@
 			<artifactId>jackson-datatype-hibernate6</artifactId>
 		</dependency>
 
+
 	</dependencies>
 
 	<build>

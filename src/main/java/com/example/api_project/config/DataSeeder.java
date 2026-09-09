@@ -25,6 +25,8 @@ public class DataSeeder implements CommandLineRunner {
     private final BranchRepository branchRepository;
     private final PasswordEncoder passwordEncoder;
 
+
+
     @Override
     public void run(String... args) {
         Role adminRole = roleRepository.findByName("ROLE_ADMIN")
@@ -59,4 +61,6 @@ public class DataSeeder implements CommandLineRunner {
 
 
 }
+
+
 

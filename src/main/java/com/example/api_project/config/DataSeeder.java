@@ -35,8 +35,7 @@ public class DataSeeder implements CommandLineRunner {
         roleRepository.findByName("ROLE_MANAGER")
                 .orElseGet(() -> roleRepository.save(Role.builder()
                         .name("ROLE_MANAGER").description("Branch / operations management").build()));
-        roleRepository.findByName("ROLE_CASHIER")
-                .orElseGet(() -> roleRepository.save(Role.builder()
+        roleRepository.findByName("ROLE_CASHIER").orElseGet(() -> roleRepository.save(Role.builder()
                         .name("ROLE_CASHIER").description("Point-of-sale, read-only catalog").build()));
 
         Branch mainBranch = branchRepository.count() == 0
@@ -44,9 +43,10 @@ public class DataSeeder implements CommandLineRunner {
                         .name("Main Branch").address("Head Office").phone("011-0000000").active(true).build())
                 : branchRepository.findAll().get(0);
 
+
         if (!userRepository.existsByUsername("admin")) {
-            User admin = User.builder()
-                    .username("admin")
+
+            User admin = User.builder().username("admin")
                     .password(passwordEncoder.encode("Admin@123"))
                     .email("admin@grocery.local")
                     .fullName("System Administrator")
@@ -57,6 +57,7 @@ public class DataSeeder implements CommandLineRunner {
             userRepository.save(admin);
             log.info("Seeded default admin user -> username: admin / password: Admin@123");
         }
+
     }
 
 

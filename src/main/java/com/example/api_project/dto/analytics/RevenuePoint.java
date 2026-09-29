@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 public class RevenuePoint {
     private String date;
     private BigDecimal total;
+
 }
 
 

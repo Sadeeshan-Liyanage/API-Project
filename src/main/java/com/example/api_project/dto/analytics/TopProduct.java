@@ -12,5 +12,6 @@ public class TopProduct {
     private String sku;
     private int quantitySold;
     private BigDecimal revenue;
+
 }
 

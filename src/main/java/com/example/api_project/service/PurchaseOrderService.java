@@ -115,6 +115,7 @@ public class PurchaseOrderService {
         PurchaseOrder saved = purchaseOrderRepository.save(po);
         auditLogger.log("STATUS_CHANGE", "PurchaseOrder", saved.getId(), "status=" + newStatus);
         return saved;
+
     }
 
 
@@ -127,6 +128,7 @@ public class PurchaseOrderService {
         purchaseOrderRepository.delete(po);
         auditLogger.log("DELETE", "PurchaseOrder", id, "removed");
     }
+
 
 
     private Long requireId(Object entityRef, String name) {
@@ -150,4 +152,5 @@ public class PurchaseOrderService {
                 .orElseThrow(() -> new ResourceNotFoundException("User", cud.getId()));
     }
 }
+
 

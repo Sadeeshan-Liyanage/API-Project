@@ -113,6 +113,7 @@ public class SalesOrderService {
             item.setSubtotal(subtotal);
             item.setSalesOrder(order);
 
+
             total = total.add(subtotal);
         }
 
@@ -139,7 +140,6 @@ public class SalesOrderService {
                 && order.getStatus() != SalesOrder.Status.CANCELLED
                 && order.getStatus() != SalesOrder.Status.REFUNDED) {
 
-
             for (SalesOrderItem item : order.getItems()) {
                 Inventory inv = inventoryRepository
                         .findByProductIdAndBranchId(item.getProduct().getId(), order.getBranch().getId())
@@ -156,6 +156,8 @@ public class SalesOrderService {
         auditLogger.log("STATUS_CHANGE", "SalesOrder", saved.getId(), "status=" + newStatus);
         return saved;
     }
+
+
 
     @Transactional
     public void delete(Long id) {
@@ -186,5 +188,7 @@ public class SalesOrderService {
                 .orElseThrow(() -> new ResourceNotFoundException("User", cud.getId()));
     }
 }
+
+
 
 

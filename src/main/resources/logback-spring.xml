@@ -25,7 +25,7 @@
 
     <logger name="com.grocery.api" level="DEBUG"/>
     <logger name="org.springframework.security" level="INFO"/>
-    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <logger name="org.hibernate.SQL" level="WARN"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>

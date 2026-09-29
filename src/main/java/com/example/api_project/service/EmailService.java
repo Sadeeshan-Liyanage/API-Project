@@ -2,6 +2,7 @@ package com.example.api_project.service;
 
 import com.example.api_project.entity.SalesOrder;
 import com.example.api_project.entity.SalesOrderItem;
+import com.example.api_project.entity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -58,6 +59,23 @@ public class EmailService {
     }
 
 
+    public void sendPasswordResetEmail(User user, String code) {
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(user.getEmail());
+            message.setSubject(fromName + " — Password reset code");
+            message.setText("Hi " + user.getFullName() + ",\n\n"
+                    + "Your password reset code is: " + code + "\n\n"
+                    + "This code expires in 10 minutes. If you didn't request this, you can ignore this email.\n\n"
+                    + "— " + fromName);
+            mailSender.send(message);
+            log.info("Password reset email sent to {}", user.getEmail());
+        } catch (Exception e) {
+            log.warn("Could not send password reset email to {}: {}", user.getEmail(), e.getMessage());
+        }
+    }
+
+
 
     private String buildReceiptBody(SalesOrder order) {
         StringBuilder sb = new StringBuilder();
@@ -76,7 +94,7 @@ public class EmailService {
         sb.append("------------------------------------------\n");
         sb.append(String.format("TOTAL: Rs %.2f%n%n", order.getTotalAmount()));
         sb.append("Thank you for shopping with us!\n");
-        sb.append("— Greenline Grocery");
+        sb.append("— Greenline Fresh Food city");
         return sb.toString();
     }
 

@@ -38,12 +38,13 @@ public class PaymentService {
         return paymentRepository.findBySalesOrderId(salesOrderId);
     }
 
+
+
     @Transactional
     public Payment create(Payment payment) {
 
         if (payment.getSalesOrder() == null
                 || payment.getSalesOrder().getId() == null) {
-
             throw new BadRequestException(
                     "A sales order id is required for a payment"
             );
@@ -75,7 +76,6 @@ public class PaymentService {
         }
 
         Payment saved = paymentRepository.save(payment);
-
         log.info("Payment created. Payment ID: {}, Order ID: {}, Amount: {}, Status: {}",
                 saved.getId(),
                 order.getId(),
@@ -106,9 +106,7 @@ public class PaymentService {
 
                 log.info("Order #{} marked as COMPLETED",
                         order.getId());
-                try {
-                    emailService.sendReceiptEmail(order);
-
+                try {emailService.sendReceiptEmail(order);
                     log.info("Receipt email process completed for Order #{}",
                             order.getId());
                 } catch (Exception e) {
@@ -151,6 +149,5 @@ public class PaymentService {
 
 
 }
-
 
 

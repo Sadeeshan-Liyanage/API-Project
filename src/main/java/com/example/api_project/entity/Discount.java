@@ -46,3 +46,5 @@ public class Discount extends BaseEntity {
     @Column(nullable = false)
     private Boolean active = true;
 }
+
+

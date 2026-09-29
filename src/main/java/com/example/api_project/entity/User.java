@@ -55,6 +55,9 @@ public class User extends BaseEntity {
     @JoinColumn(name = "branch_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Branch branch;
+
+
+
 }
 
 

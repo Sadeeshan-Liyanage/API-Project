@@ -40,6 +40,7 @@ public class AuditLogger {
 
             log.warn("Failed to write audit log: {}", e.getMessage());
         }
+
     }
 
     private Optional<Long> currentUserId() {
@@ -55,6 +56,7 @@ public class AuditLogger {
         u.setId(id);
         return u;
     }
+
 }
 
 

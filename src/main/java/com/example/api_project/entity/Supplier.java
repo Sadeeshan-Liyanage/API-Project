@@ -34,6 +34,7 @@ public class Supplier extends BaseEntity {
 
     @Column(length = 255)
     private String address;
+
 }
 
 

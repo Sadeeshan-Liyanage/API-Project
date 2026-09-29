@@ -13,5 +13,7 @@ public class TopCustomer {
     private String name;
     private int orderCount;
     private BigDecimal totalSpent;
+
+
 }
 

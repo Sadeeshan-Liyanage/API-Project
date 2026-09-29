@@ -33,8 +33,7 @@ public class RoleService {
     public Role create(Role role) {
         if (roleRepository.existsByName(role.getName())) {
             throw new DuplicateResourceException("Role already exists: " + role.getName());
-        }
-        Role saved = roleRepository.save(role);
+        }  Role saved = roleRepository.save(role);
         auditLogger.log("CREATE", "Role", saved.getId(), saved.getName());
         return saved;
     }
@@ -58,6 +57,7 @@ public class RoleService {
         roleRepository.delete(role);
         auditLogger.log("DELETE", "Role", id, role.getName());
     }
+
 }
 
 

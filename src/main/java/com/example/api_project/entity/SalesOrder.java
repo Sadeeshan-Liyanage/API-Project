@@ -63,6 +63,8 @@ public class SalesOrder extends BaseEntity {
     @OneToMany(mappedBy = "salesOrder", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
     private List<Payment> payments = new ArrayList<>();
+
+
 }
 
 
